@@ -17,25 +17,15 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity()
-@EntityListeners(AuditingEntityListener.class)
+
 @Table(name = "booking_review") //Nothing to do with Java logic. It helps in Databases names.
-public class Review {
-    @Id //this annotation makes the id property as the primary key of the table.
-    @GeneratedValue(strategy = GenerationType.IDENTITY) //Identity means autoincrement
-    private Long id;
+public class Review extends BaseModel{
+
     @Column(nullable = false)
     private String content;
 
     Double rating;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
 
 }
